@@ -140,7 +140,7 @@ the package "wordcloud" using PyPI. In order to install the package, we used the
 ```
 
 The wordcloud package takes the comment data and creates a nice visual representation of the data.
-In the reddit_word_cloud.ipynb notebook, we separated the overall dataframe into three 
+In the [reddit_word_cloud.ipynb notebook](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_word_cloud.ipynb), we separated the overall dataframe into three 
 dataframes by subreddit (r/TheRedPill, r/Feminism, r/technews). After separating by subreddit,
 we imported the wordcloud library and combined all of the text data in each subreddit into one long string.
 After, we were able to use the package to generate wordcloud images and save them as png files.
