@@ -9,12 +9,9 @@ period on the subreddit r/TheRedPill.
 ### Research Design 
 
 Reddit spaces can house large communities where like-minded people are able to engage 
-in discussion about relevant or interesting topics. On certain occasions, these communities can harbor
-prejudiced and violent opinions about groups of people. One particular subreddit, r/TheRedPill, is a place 
-where many users, particularly men, share an overwhelmingly negative sentiment about women. In our research,
+in discussion about relevant or interesting topics. On rare occasions, these communities can harbor prejudiced and violent opinions about groups of people. The particular reddit r/TheRedPill is a place where many users, particularly men, share an overwhelmingly negative sentiment about women. In our research,
 we intend to analyze trends in discussion about women within the subreddit r/TheRedPill, as well as changes
-in sentiment over time. This may offer some insight into how dangerous group think may have a negative 
-impact on marginalized communities both online and offline.
+in sentiment over time compared to subreddits with generally neutral or overwhelmingly positive discussion about women. This may offer some insight into how dangerous group think may have a negative impact on marginalized communities both online and offline.
 
 ### Corpus
 
@@ -47,7 +44,7 @@ comments in our target subreddits. Each monthly raw data file for 2016 ranged be
 
 In the data_collection.ipynb file (https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb),
 we include information about how to parse data files from PushShift.io for selected subreddits using PyWren.
-Due to the large data size of these files, we were unable to successfully use PyWren and used our local computers in
+Due to the large data size of these files and hardware limitations, we were unable to successfully use PyWren and used our local computers in
 order to pickle the data necessary. In the data_collection.ipynb file, we also included code in order to run
 each of the raw data files locally. After successfully pickling each of the individual monthly files, 
 we store all the comments into one corpus, which can be seen at the end of the notebook.
