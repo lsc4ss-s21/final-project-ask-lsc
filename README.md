@@ -194,6 +194,7 @@ Information on Word2Vec:
 
 https://en.wikipedia.org/wiki/Word2vec
 
-Understanding Sentiment Analysis:
+Understanding Sentiment Analysis and Word2Vec on Spark:
 
 https://monkeylearn.com/sentiment-analysis/
+https://sofiadutta.github.io/datascience-ipynbs/big-data-analytics/Using_MyClassifier_Twitter_Data_Sentiment_Classification_and_Big_Data_Analytics_on_Spark_Dataframe.html
