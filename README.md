@@ -100,12 +100,9 @@ This code uses a similar approach to Dask, without using AWS.
 
 ### Word2Vec
 
-Word2Vec is an algorithm used in natural language processing. Specifically, 
-the algorithm uses neural networks to learn word associations using a large amount of text.
-This algorithm fits perfectly with our corpus, seeing that we are using a large amount of data.
-We also decided to use Word2Vec because this algorithm converts each distinct word into a vector. 
-By converting each word into a vector, we are then able to conduct both sentiment analysis
-and topic analysis on each comment in each target subreddit. 
+Word2Vec is an algorithm used in natural language processing. Specifically, the algorithm uses neural networks to learn word associations using a large amount of text. This algorithm fits perfectly with our corpus, given that we are using a large amount of data (84GB). We also decided to use Word2Vec because this algorithm converts each distinct word into a vector, and allows for easy access to word synonyms, which allows us to analyze relationships between different words in the vocabulary. 
+We tokenized our lemmatized data in PySpark and fed it to our word2vec model, which transformed our text into numeric vectors for analysis. Then, we took a list of salient keywords that are used frequently within the red pill forum (girl, woman, feminist, stacy, chad, becky, beta, love, wish, deserve), and searched for their synonyms, which were the words that had the highest similarity scores to the keywords. We derived the top ten most similar words to each keyword for all keywords in our list.
+
 
 ### Sentiment Analysis
 
@@ -167,6 +164,18 @@ For r/technews, the more frequent words are "people" and "make".
 
 Overall, these word clouds allow us to understand more about the major topics discussed
 in each subreddit.
+
+## Discussion of results:
+
+The implications of our method results are as follows:
+* Word2vec: The word2vec output tracks with the idea that r/TheRedPill uses vitriolic language to describe women (e.g. the word most linked with “deserve” is “homemaker; the words most associated with “stacy” are “obedience” and “whorish”). 
+* Sentiment analysis: When viewed in the context of average compound sentiment over time, we observed that r/technews had the most drastic fluctuations in compound sentiment over time, followed by r/feminism, and r/TheRedPill actually had fairly neutral sentiment over the year. This makes sense because while users on the red pill speak very negatively about women, they also use very positive language to try and embolden and encourage other users. 
+* Topic analysis: Our wordcloud outputs show that the r/feminism and r/technews subreddits use words like “people” more often than r/TheRedPill, which uses more gender-polarized language.
+
+## Social Science Implications:
+Our work contributes to the social sciences by shedding light on how users on r/TheRedPill describe women, and how sentiment within this subreddit compares to other subreddits. This topic is often avoiding given its contentious nature, and we contribute to the field by using large scale computing frameworks to better parse patterns in the comments that can inform what the movement stands for, and where it’s headed.
+
+
 
 ## Notebook Workflow and Contribution
 
