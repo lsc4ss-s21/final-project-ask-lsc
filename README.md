@@ -111,6 +111,14 @@ and topic analysis on each comment in each target subreddit.
 
 ### Sentiment Analysis
 
+Sentiment analysis is a very useful and widely used natural language processing technique.
+This natural language processing technique takes in text and detects either positive of negative
+sentiment in the text. The polarity of the sentiment ranges on a scale from -1 to 1. In this project,
+we use sentiment analysis on the comments from our target subreddits in order to better understand the 
+true sentiment of each text. We also want to track sentiment over a 12-month period, gauging whether sentiment 
+has gotten more or less negative over time. By understanding change in sentiment, we can better understand
+dangerous group think and its threat on marginalized communities.
+
 ### Topic Analysis
 
 ## Visualizations
@@ -128,3 +136,7 @@ https://github.com/AhmedSoli/Reddit-Politics/blob/master/01_Content_Analysis/Pre
 Information on Word2Vec:
 
 https://en.wikipedia.org/wiki/Word2vec
+
+Understanding Sentiment Analysis:
+
+https://monkeylearn.com/sentiment-analysis/
