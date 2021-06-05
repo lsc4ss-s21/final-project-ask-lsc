@@ -58,8 +58,7 @@ In order to run both topic analysis and sentiment analysis, the data had to be c
 We used `Dask` in order to parallelize the data cleaning process. To use `Dask` appropriately, we
 had to create a EMR Cluster with 6 m5.xlarge instances to properly handle the data size. 
 
-In the [reddit_data_cleaning_dask.ipynb notebook] 
-(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb),
+In the [reddit_data_cleaning_dask.ipynb notebook](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb),
 we first installed the packages necessary to clean our files. The installation for these packages is as follows:
 ```{python}
 ! pip install nltk
@@ -101,23 +100,17 @@ This code uses a similar approach to Dask, without using AWS.
 ### Word2Vec
 
 Word2Vec is an algorithm used in natural language processing. Specifically, the algorithm uses neural networks to learn word associations using a large amount of text. This algorithm fits perfectly with our corpus, given that we are using a large amount of data (84GB). We also decided to use Word2Vec because this algorithm converts each distinct word into a vector, and allows for easy access to word synonyms, which allows us to analyze relationships between different words in the vocabulary. 
-We tokenized our lemmatized data in PySpark and fed it to our word2vec model, which transformed our text into numeric vectors for analysis. Then, we took a list of salient keywords that are used frequently within the red pill forum (girl, woman, feminist, stacy, chad, becky, beta, love, wish, deserve), and searched for their synonyms, which were the words that had the highest similarity scores to the keywords. We derived the top ten most similar words to each keyword for all keywords in our list.
+In [this](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/vader_spark%20(1).ipynb) notebook, we tokenized our lemmatized data in PySpark and fed it to our word2vec model, which transformed our text into numeric vectors for analysis. Then, we took a list of salient keywords that are used frequently within the red pill forum (girl, woman, feminist, stacy, chad, becky, beta, love, wish, deserve), and searched for their synonyms, which were the words that had the highest similarity scores to the keywords. We derived the top ten most similar words to each keyword for all keywords in our list.
 
 
 ### Sentiment Analysis
 
-Sentiment analysis is a very useful and widely used natural language processing technique.
-This natural language processing technique takes in text and detects either positive of negative
-sentiment in the text. The polarity of the sentiment ranges on a scale from -1 to 1. In this project,
-we use sentiment analysis on the comments from our target subreddits in order to better understand the 
-true sentiment of each text. We also want to track sentiment over a 12-month period, gauging whether sentiment 
+In this project, we use sentiment analysis on the comments from our target subreddits in order to better understand the 
+valence of each comment. We also want to track sentiment over a 12-month period, gauging whether sentiment 
 has gotten more or less negative over time. By understanding change in sentiment, we can better understand
 dangerous group think and its threat on marginalized communities. 
 
-To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews.
-The justification for our selection of these specific subreddits is to gather sentiment in a discussion forum that contain neutral topics 
-(r/technews) and a forum that is generally more uplifting and supportive towards women (r/Feminism). In order to create the model, the sentiment analysis scores 
-were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
+To perform our [sentiment analysis](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/vader_spark%20(1).ipynb) on Spark, we used the Vader library. This library is especially suited for social media data. We calculated “compound” scores for each comment in our data, and this score is computed by summing the valence scores of each word in the vocabulary and normalizing them to be between -1, which would be extremely negative, and +1, extremely positive. This score is a unidimensional measure of sentiment, which we then plotted as averages across each week of the year in our data for each of the subreddits of interest in Dask. 
 
 ![](reddit_temp.png)
 
