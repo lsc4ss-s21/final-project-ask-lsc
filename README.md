@@ -53,7 +53,9 @@ each of the raw data files locally. After successfully pickling each of the indi
 we store all the comments into one corpus, which can be seen at the end of the notebook.
 
 After pickling together all the individual files, the final file (comments_corpus_final.pickle)
-was 182.6 MB in size. 
+was 182.6 MB in size. The joined pickle file is located on Google Drive at this link:
+
+https://drive.google.com/drive/u/0/folders/1kgnMtWss9kZBtJvI6wyEao8vdLCnv48W
 
 ### Data Cleaning
 
