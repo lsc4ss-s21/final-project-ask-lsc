@@ -113,7 +113,13 @@ sentiment in the text. The polarity of the sentiment ranges on a scale from -1 t
 we use sentiment analysis on the comments from our target subreddits in order to better understand the 
 true sentiment of each text. We also want to track sentiment over a 12-month period, gauging whether sentiment 
 has gotten more or less negative over time. By understanding change in sentiment, we can better understand
-dangerous group think and its threat on marginalized communities. To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews. The justification for these specific subreddits is to gather sentiment in discussion forums that contain neutral topics (r/technews) and a subreddit that is supportive of women. In order to create the model, the sentiment analysis scores were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
+dangerous group think and its threat on marginalized communities. 
+
+To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews.
+The justification for these specific subreddits is to gather sentiment in discussion forums that contain neutral topics 
+(r/technews) and a subreddit that is supportive of women. In order to create the model, the sentiment analysis scores 
+were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
+
 ![](reddit_temp.png)
 
 ### Topic Analysis
@@ -126,7 +132,36 @@ analysis to better understand the main focus of our target subreddits. For examp
 sentiment behind the comments, but what the comments are most frequently about. For r/TheRedPill, we want to see whether
 most of the negative sentiment is directed towards women and femininity.
 
-## Visualizations
+In order to understand the top words used in each target subreddit, we decided to use
+the package "wordcloud" using PyPI. In order to install the package, we used the following code:
+
+```{python}
+! pip install wordcloud
+```
+
+The wordcloud package takes the comment data and creates a nice visual representation of the data.
+In the reddit_word_cloud.ipynb notebook, we separated the overall dataframe into three 
+dataframes by subreddit (r/TheRedPill, r/Feminism, r/technews). After separating by subreddit,
+we imported the wordcloud library and combined all of the text data in each subreddit into one long string.
+After, we were able to use the package to generate wordcloud images and save them as png files.
+
+Here, you can view the word cloud images for each subreddit:
+
+r/TheRedPill:
+![](world_clouds/RedPillWordCloud.png)
+
+r/Feminism:
+![](world_clouds/FeminismWordCloud.png)
+
+r/technews:
+![](world_clouds/TechNewsWordCloud.png)
+
+For r/TheRedPill, we can see that the most frequent words are "one" and "man".
+For r/Feminism, the most frequent words are "women" and "people".
+For r/technews, the more frequent words are "people" and "make".
+
+Overall, these word clouds allow us to understand more about the major topics discussed
+in each subreddit.
 
 ## Works Cited
 
