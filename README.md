@@ -17,9 +17,7 @@ in sentiment over time compared to subreddits with generally neutral or overwhel
 
 In this project, we will be using text data gathered from the comment section 
 of posts under the subreddit r/TheRedPill in 2016. In order to gather this text data,
-we first use a database containing all reddit data from a particular month in 2016
-(https://files.pushshift.io/reddit/comments/) and filter only for the particular
-subreddit data we choose to examine. For our data collection, we will be looking at
+we first use a database ([pushshift.io](https://files.pushshift.io/reddit/comments/)) containing all reddit data from a particular month in 2016 and filter only for the particular subreddit data we choose to examine. For our data collection, we will be looking at
 r/TheRedPill, r/Feminism, and r/technews.
 Each monthly raw database contains around 8GB of data.
 
@@ -42,10 +40,10 @@ machines, where we pre-process the data to only contain comment information and 
 comments in our target subreddits. Each monthly raw data file for 2016 ranged between 6GB of data and
 8GB of data.
 
-In the data_collection.ipynb file (https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb),
+In the [data_collection.ipynb file](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb),
 we include information about how to parse data files from PushShift.io for selected subreddits using PyWren.
-Due to the large data size of these files and hardware limitations, we were unable to successfully use PyWren and used our local computers in
-order to pickle the data necessary. In the data_collection.ipynb file, we also included code in order to run
+Due to the large data size of these files and hardware limitations, we were unable to successfully use PyWren and consequently, used our local computers in
+order to pickle the necessary data. In the data_collection.ipynb file, we also included code in order to run
 each of the raw data files locally. After successfully pickling each of the individual monthly files, 
 we store all the comments into one corpus, which can be seen at the end of the notebook.
 
