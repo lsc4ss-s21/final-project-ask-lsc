@@ -41,8 +41,8 @@ comments in our target subreddits. Each monthly raw data file for 2016 ranged be
 8GB of data.
 
 In the [data_collection.ipynb file](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb),
-we include information about how to parse data files from PushShift.io for selected subreddits using PyWren.
-Due to the large data size of these files and hardware limitations, we were unable to successfully use PyWren and consequently, used our local computers in
+we include information about how to parse data files from PushShift.io for selected subreddits using `PyWren`.
+Due to the large data size of these files and hardware limitations, we were unable to successfully use `PyWren` and consequently, used our local computers in
 order to pickle the necessary data. In the data_collection.ipynb file, we also included code in order to run
 each of the raw data files locally. After successfully pickling each of the individual monthly files, 
 we store all the comments into one corpus, which can be seen at the end of the notebook.
@@ -55,8 +55,8 @@ https://drive.google.com/drive/u/0/folders/1kgnMtWss9kZBtJvI6wyEao8vdLCnv48W
 ### Data Cleaning
 
 In order to run both topic analysis and sentiment analysis, the data had to be cleaned appropriately.
-We used Dask in orderto parallelize the data cleaning process. To use Dask appropriately, we
-had to create a Dask Cluster with 6 m5.xlarge instances to properly handle the data size. 
+We used `Dask` in order to parallelize the data cleaning process. To use `Dask` appropriately, we
+had to create a EMR Cluster with 6 m5.xlarge instances to properly handle the data size. 
 
 In the [reddit_data_cleaning_dask.ipynb notebook] 
 (https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb),
@@ -89,8 +89,10 @@ Our second function, remove_stopwords, removes all the stop words from the comme
 nltk package. Our third function, lemmatize, sorts the words by grouping them by similarity.
 Our fourth function, clean_text, runs all of these functions and stores the information in a dataframe.
 
-After the fourth function, Dask runs the clean_text function in order to parallelize the cleaning process.
-The final product, a dataframe, can be seen within the notebook.
+After the fourth function, `Dask` runs the clean_text function in order to parallelize the cleaning process.
+The final product, a dataframe, can be seen within the notebook. The parallelization of the resulting workflow partitioned the dataframe into twelve different tasks, and ran the aforementioned functions on each portion of the dask dataframe.
+
+![dask_visualize](dask_cleaning_vis.png)
 
 Due to the size of the files, it is possible that the system may run out of memory. Therefore,
 we created a separate [notebook](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/local_cleaning_sentiment%20(1).ipynb) containing code on running data cleaning on a local machine.
@@ -116,8 +118,8 @@ has gotten more or less negative over time. By understanding change in sentiment
 dangerous group think and its threat on marginalized communities. 
 
 To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews.
-The justification for these specific subreddits is to gather sentiment in discussion forums that contain neutral topics 
-(r/technews) and a subreddit that is gebrally more uplifting and supportive towards women (r/Feminism). In order to create the model, the sentiment analysis scores 
+The justification for our selection of these specific subreddits is to gather sentiment in a discussion forum that contain neutral topics 
+(r/technews) and a forum that is generally more uplifting and supportive towards women (r/Feminism). In order to create the model, the sentiment analysis scores 
 were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
 
 ![](reddit_temp.png)
@@ -166,14 +168,14 @@ For r/technews, the more frequent words are "people" and "make".
 Overall, these word clouds allow us to understand more about the major topics discussed
 in each subreddit.
 
-## Notebook Workflow
+## Notebook Workflow and Contribution
 
-1. [Data Collection](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb) (PyWren/Local)
-2. [Text Cleaning](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb) (Dask)
-3. [Comment Tokenizing and Lemmatizing](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_get_lemmas_local.ipynb) (Local)
-4. [Sentiment Analysis](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/vader_spark%20(1).ipynb) (PySpark)
-5. [Temporal Trends](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_temporal_data_trends.ipynb) (Dask)
-6. [Topic Analysis and Word Clouds](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_word_cloud.ipynb) (PySpark/Local)
+1. [Data Collection](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb) (PyWren/Local) (Kaylah, Angelica)
+2. [Text Cleaning](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb) (Dask) (Kaylah, Angelica, Sruti)
+3. [Comment Tokenizing and Lemmatizing](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_get_lemmas_local.ipynb) (Local) (Sruti, Kaylah Angelica)
+4. [Sentiment Analysis](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/vader_spark%20(1).ipynb) (PySpark) (Sruti)
+5. [Temporal Trends](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_temporal_data_trends.ipynb) (Dask) (Kaylah)
+6. [Topic Analysis and Word Clouds](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_word_cloud.ipynb) (PySpark/Local) (Angelica)
 
 
 ## Works Cited
