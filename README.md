@@ -117,7 +117,7 @@ dangerous group think and its threat on marginalized communities.
 
 To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews.
 The justification for these specific subreddits is to gather sentiment in discussion forums that contain neutral topics 
-(r/technews) and a subreddit that is supportive of women. In order to create the model, the sentiment analysis scores 
+(r/technews) and a subreddit that is gebrally more uplifting and supportive towards women (r/Feminism). In order to create the model, the sentiment analysis scores 
 were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
 
 ![](reddit_temp.png)
@@ -165,6 +165,16 @@ For r/technews, the more frequent words are "people" and "make".
 
 Overall, these word clouds allow us to understand more about the major topics discussed
 in each subreddit.
+
+## Notebook Workflow
+
+1. [Data Collection](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/data_collection.ipynb) (PyWren)
+2. [Text Cleaning](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb) (Dask)
+3. [Comment Tokenizing and Lemmatizing](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_get_lemmas_local.ipynb) (Local)
+4. [Sentiment Analysis](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/vader_spark%20(1).ipynb) (PySpark)
+5. [Temporal Trends](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_temporal_data_trends.ipynb) (Dask)
+6. [Topic Analysis and Word Clouds](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_word_cloud.ipynb) (PySpark/Local)
+
 
 ## Works Cited
 
