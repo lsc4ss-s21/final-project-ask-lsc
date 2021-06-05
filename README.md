@@ -97,10 +97,17 @@ The final product, a dataframe, can be seen within the notebook.
 
 Due to the size of the files, it is possible that the system may run out of memory. Therefore,
 we created a separate notebook containing code on running data cleaning on a local machine 
-(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_local%20(1).ipynb).
+(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/local_cleaning_sentiment%20(1).ipynb).
 This code uses a similar approach to Dask, without using AWS.
 
 ### Word2Vec
+
+Word2Vec is an algorithm used in natural language processing. Specifically, 
+the algorithm uses neural networks to learn word associations using a large amount of text.
+This algorithm fits perfectly with our corpus, seeing that we are using a large amount of data.
+We also decided to use Word2Vec because this algorithm converts each distinct word into a vector. 
+By converting each word into a vector, we are then able to conduct both sentiment analysis
+and topic analysis on each comment in each target subreddit. 
 
 ### Sentiment Analysis
 
@@ -118,3 +125,6 @@ How to extract subreddit data from raw Reddit data (pushshift.io):
 
 https://github.com/AhmedSoli/Reddit-Politics/blob/master/01_Content_Analysis/PreProcessing/.ipynb_checkpoints/010_ExtractCommentsTextCorpus-checkpoint.ipynb
 
+Information on Word2Vec:
+
+https://en.wikipedia.org/wiki/Word2vec
