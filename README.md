@@ -57,6 +57,49 @@ was 182.6 MB in size.
 
 ### Data Cleaning
 
+In order to run both topic analysis and sentiment analysis, the data had to be cleaned appropriately.
+We used Dask in order to clean the data. In order to use Dask appropriately, we
+had to create a Dask Cluster with 6 m5.xlarge instances in order to handle the data size. 
+
+In the reddit_data_cleaning_dask.ipynb 
+(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb),
+we first installed the packages necessary to clean our files. The installation for these packages is as follows:
+```{python}
+! pip install nltk
+! pip install spacy
+! pip install dask
+! pip install graphviz
+! pip install dask[complete]
+```
+We then imported all of the necessary packages for data cleaning. The imported packages are as follows:
+```{python}
+import dask
+import pickle
+from collections import Counter
+from nltk.corpus import stopwords
+from nltk.stem.wordnet import WordNetLemmatizer
+import string
+import nltk
+import pandas as pd
+import spacy
+import time
+```
+After importing the necessary packages, we also downloaded 'stopwords', 'wordnet', and 'punkt' for the 
+data cleaning. When starting the cluster, we requested 8 workers with 1 core each and 4 GiB of memory.
+
+The first function, clean_comments,  cleans the comments by getting rid of words and unnecessary spaces (\n). 
+Our second function, remove_stopwords, removes all the stop words from the comments as provided in the 
+nltk package. Our third function, lemmatize, sorts the words by grouping them by similarity.
+Our fourth function, clean_text, runs all of these functions and stores the information in a dataframe.
+
+After the fourth function, Dask runs the clean_text function in order to parallelize the cleaning process.
+The final product, a dataframe, can be seen within the notebook.
+
+Due to the size of the files, it is possible that the system may run out of memory. Therefore,
+we created a separate notebook containing code on running data cleaning on a local machine 
+(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_local%20(1).ipynb).
+This code uses a similar approach to Dask, without using AWS.
+
 ### Word2Vec
 
 ### Sentiment Analysis
