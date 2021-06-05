@@ -55,10 +55,10 @@ https://drive.google.com/drive/u/0/folders/1kgnMtWss9kZBtJvI6wyEao8vdLCnv48W
 ### Data Cleaning
 
 In order to run both topic analysis and sentiment analysis, the data had to be cleaned appropriately.
-We used Dask in order to clean the data. In order to use Dask appropriately, we
-had to create a Dask Cluster with 6 m5.xlarge instances in order to handle the data size. 
+We used Dask in orderto parallelize the data cleaning process. To use Dask appropriately, we
+had to create a Dask Cluster with 6 m5.xlarge instances to properly handle the data size. 
 
-In the reddit_data_cleaning_dask.ipynb 
+In the [reddit_data_cleaning_dask.ipynb notebook] 
 (https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/reddit_data_cleaning_dask.ipynb),
 we first installed the packages necessary to clean our files. The installation for these packages is as follows:
 ```{python}
@@ -93,8 +93,7 @@ After the fourth function, Dask runs the clean_text function in order to paralle
 The final product, a dataframe, can be seen within the notebook.
 
 Due to the size of the files, it is possible that the system may run out of memory. Therefore,
-we created a separate notebook containing code on running data cleaning on a local machine 
-(https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/local_cleaning_sentiment%20(1).ipynb).
+we created a separate [notebook](https://github.com/lsc4ss-s21/final-project-ask-lsc/blob/main/local_cleaning_sentiment%20(1).ipynb) containing code on running data cleaning on a local machine.
 This code uses a similar approach to Dask, without using AWS.
 
 ### Word2Vec
@@ -114,7 +113,8 @@ sentiment in the text. The polarity of the sentiment ranges on a scale from -1 t
 we use sentiment analysis on the comments from our target subreddits in order to better understand the 
 true sentiment of each text. We also want to track sentiment over a 12-month period, gauging whether sentiment 
 has gotten more or less negative over time. By understanding change in sentiment, we can better understand
-dangerous group think and its threat on marginalized communities.
+dangerous group think and its threat on marginalized communities. To contextualize these trends, we performed collected sentiment analysis for the subreddits r/Feminism and r/technews. The justification for these specific subreddits is to gather sentiment in discussion forums that contain neutral topics (r/technews) and a subreddit that is supportive of women. In order to create the model, the sentiment analysis scores were loaded into `Dask` and pandas methods were implemented on a dask dataframe.
+![](reddit_temp.png)
 
 ### Topic Analysis
 
