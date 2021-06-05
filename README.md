@@ -148,12 +148,15 @@ After, we were able to use the package to generate wordcloud images and save the
 Here, you can view the word cloud images for each subreddit:
 
 r/TheRedPill:
+
 ![](world_clouds/RedPillWordCloud.png)
 
 r/Feminism:
+
 ![](world_clouds/FeminismWordCloud.png)
 
 r/technews:
+
 ![](world_clouds/TechNewsWordCloud.png)
 
 For r/TheRedPill, we can see that the most frequent words are "one" and "man".
