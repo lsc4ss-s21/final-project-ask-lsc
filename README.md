@@ -123,6 +123,14 @@ dangerous group think and its threat on marginalized communities.
 
 ### Topic Analysis
 
+Topic analysis is similar to sentiment analysis, but focuses on the most frequent topics mentioned rather than the 
+overall sentiment of a text. Topic analysis is a useful and widely used machine learning technique that allows
+users to directly assign topics to text data. Topic analysis can use any unstructured form of text data and process the
+information in order to analyze the most common topics of the text. In our project, we use topic 
+analysis to better understand the main focus of our target subreddits. For example, we want to not only understand the 
+sentiment behind the comments, but what the comments are most frequently about. For r/TheRedPill, we want to see whether
+most of the negative sentiment is directed towards women and femininity.
+
 ## Visualizations
 
 ## Works Cited
