@@ -52,7 +52,7 @@ order to pickle the data necessary. In the data_collection.ipynb file, we also i
 each of the raw data files locally. After successfully pickling each of the individual monthly files, 
 we store all the comments into one corpus, which can be seen at the end of the notebook.
 
-After pickling together all the individual files, the final file (comments_corpus_final.pickle")
+After pickling together all the individual files, the final file (comments_corpus_final.pickle)
 was 182.6 MB in size. 
 
 ### Data Cleaning
