@@ -166,7 +166,7 @@ The implications of our method results are as follows:
 * Topic analysis: Our wordcloud outputs show that the r/feminism and r/technews subreddits use words like “people” more often than r/TheRedPill, which uses more gender-polarized language.
 
 ## Social Science Implications:
-Our work contributes to the social sciences by shedding light on how users on r/TheRedPill describe women, and how sentiment within this subreddit compares to other subreddits. This topic is often avoiding given its contentious nature, and we contribute to the field by using large scale computing frameworks to better parse patterns in the comments that can inform what the movement stands for, and where it’s headed.
+Our work contributes to the social sciences by shedding light on how users on r/TheRedPill describe women, and how sentiment within this subreddit compares to other subreddits. This topic is often avoided given its contentious nature, and we contribute to the field by using large scale computing frameworks to better parse patterns in the comments that can inform what the movement stands for, and where it’s headed.
 
 
 
